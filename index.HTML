@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Agenda</title>
+    <link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#166534">
+<link rel="apple-touch-icon" href="icono-192.png">
+</head>
+<body>
+
+    <header>
+        <h1>Mi Agenda</h1>
+
+        <div id="herramientas">
+            <label for="buscador">Buscar:</label>
+            <input
+                type="search"
+                id="buscador"
+                placeholder="Buscar contactos o eventos"
+            >
+
+            <button type="button" id="btn-exportar">
+                Exportar
+            </button>
+
+            <button type="button" id="btn-importar">
+                Importar
+            </button>
+
+            <input
+                type="file"
+                id="archivo-importar"
+                accept=".json,application/json"
+                hidden
+            >
+        </div>
+    </header>
+
+
+<!-- NAVEGACION INFERIOR PARA CELULARES -->
+<nav id="navegacion-movil" aria-label="Navegación de Mi Agenda">
+    <a href="#seccion-contactos">👥 CONTACTOS</a>
+    <a href="#seccion-eventos">📅 EVENTOS</a>
+</nav>
+
+
+    <main id="contenido-principal">
+
+        <!-- SECCIÓN CONTACTOS -->
+        <section id="seccion-contactos">
+            <h2>Contactos</h2>
+
+            <form id="form-contacto">
+
+                <label for="contacto-nombre">Nombre:</label>
+                <input
+                    type="text"
+                    id="contacto-nombre"
+                    name="nombre"
+                    required
+                >
+
+                <label for="contacto-telefono">Teléfono:</label>
+                <input
+                    type="tel"
+                    id="contacto-telefono"
+                    name="telefono"
+                >
+
+                <label for="contacto-email">Email:</label>
+                <input
+                    type="email"
+                    id="contacto-email"
+                    name="email"
+                >
+
+                <label for="contacto-notas">Notas:</label>
+                <textarea
+                    id="contacto-notas"
+                    name="notas"
+                    rows="4"
+                ></textarea>
+
+                <button type="submit" id="btn-guardar-contacto">
+                    Guardar contacto
+                </button>
+
+            </form>
+
+            <h3>Lista de contactos</h3>
+            <div id="lista-contactos"></div>
+        </section>
+
+        <!-- SECCIÓN EVENTOS -->
+        <section id="seccion-eventos">
+            <h2>Eventos</h2>
+
+            <form id="form-evento">
+
+                <label for="evento-titulo">Título:</label>
+                <input
+                    type="text"
+                    id="evento-titulo"
+                    name="titulo"
+                    required
+                >
+
+                <label for="evento-fecha">Fecha:</label>
+                <input
+                    type="date"
+                    id="evento-fecha"
+                    name="fecha"
+                    required
+                >
+
+                <label for="evento-hora">Hora:</label>
+                <input
+                    type="time"
+                    id="evento-hora"
+                    name="hora"
+                    required
+                >
+
+                <label for="evento-lugar">Lugar:</label>
+                <input
+                    type="text"
+                    id="evento-lugar"
+                    name="lugar"
+                >
+
+                <label for="evento-contacto">Contacto:</label>
+                <select
+                    id="evento-contacto"
+                    name="contacto"
+                >
+                    <option value="">
+                        Seleccionar contacto
+                    </option>
+                </select>
+
+                <button type="submit" id="btn-guardar-evento">
+                    Guardar evento
+                </button>
+
+            </form>
+
+            <h3>Lista de eventos</h3>
+            <div id="lista-eventos"></div>
+        </section>
+
+    </main>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
